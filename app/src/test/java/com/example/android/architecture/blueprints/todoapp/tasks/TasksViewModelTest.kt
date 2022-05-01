@@ -1,6 +1,5 @@
 package com.example.android.architecture.blueprints.todoapp.tasks
 
-
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -29,8 +28,8 @@ class TasksViewModelTest {
 
         // Then the new task event is triggered
         val value = tasksViewModel.newTaskEvent.getOrAwaitValue()
-        MatcherAssert.assertThat(
-            value.getContentIfNotHandled().toString(), not(CoreMatchers.nullValue())
+        assertThat(
+            value.getContentIfNotHandled(), (not(nullValue()))
         )
     }
 }
